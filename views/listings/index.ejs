@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listings</title>
-</head>
-<body>
+</head>   
+<body> 
+    <form method="GET" action="/listings/new">
+        <button>Add New Listing</button>
+    </form>
     <h1>Listings from around the world!!</h1>
     <ul>
         <% for (listing of allListings) {%>
@@ -13,4 +16,4 @@
         <% } %>
     </ul>
 </body>
-</html>
+</html>   
