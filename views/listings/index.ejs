@@ -1,11 +1,12 @@
 <% layout("/layouts/boilerplate") %>
 <body> 
-    <form method="GET" action="/listings/new">
+    <!-- <form method="GET" action="/listings/new">
         <button>Add New Listing</button>
-    </form>
+    </form> -->
     <h1>Listings from around the world!!</h1>
     <ul>
         <% for (listing of allListings) {%>
+        <li><a href="/listings/<%= listing._id %>"><%= listing.title %></a></li>
         <li><a href="/listings/<%= listing._id %>"><%= listing.title %></a></li>
         <% } %>
     </ul>
