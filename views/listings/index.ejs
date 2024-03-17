@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listings</title>
-</head>   
+<% layout("/layouts/boilerplate") %>
 <body> 
     <form method="GET" action="/listings/new">
         <button>Add New Listing</button>
@@ -15,5 +9,4 @@
         <li><a href="/listings/<%= listing._id %>"><%= listing.title %></a></li>
         <% } %>
     </ul>
-</body>
-</html>   
+</body> 
