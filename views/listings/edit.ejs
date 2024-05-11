@@ -1,19 +1,74 @@
 <% layout("/layouts/boilerplate") %>
-<body>
+<div class="row mt-3">
+  <div class="col-8 offset-2">
     <h3>Edit Listing</h3>
     <form method="POST" action="/listings/<%= editListing._id %>?_method=PUT">
-        <input name="title" placeholder="enter title" value="<%= editListing.title %>" type="text">
-        <br><br>
-        <textarea name="description" cols="30" rows="10" placeholder="enter description"><%= editListing.description  %></textarea>
-        <br><br>
-        <input name="image" placeholder="enter image URL/link" value="<%= editListing.image %>"  type="text">
-        <br><br>
-        <input name="price" placeholder="enter price" value="<%= editListing.price %>" type="text">
-        <br><br>
-        <input name="country" placeholder="enter country" value="<%= editListing.country %>" type="text">
-        <br><br>
-        <input name="location" placeholder="enter location" value="<%= editListing.location %>" type="text">
-        <br><br>
-        <button>Add</button>
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input
+          name="title"
+          placeholder="enter title"
+          value="<%= editListing.title %>"
+          type="text"
+          class="form-control"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea
+          name="description"
+          cols="30"
+          rows="10"
+          placeholder="enter description"
+          class="form-control"
+        >
+        <%= editListing.description %></textarea
+        >
+      </div>
+      <div class="mb-3">
+        <label for="image" class="form-label">Image Link</label>
+        <input
+          name="image"
+          placeholder="enter image URL/link"
+          value="<%= editListing.image %>"
+          type="text"
+          class="form-control"
+        />
+      </div>
+      <div class="row">
+        <div class="mb-3 col-md-4">
+          <label for="price" class="form-label">Price</label>
+          <input
+            name="price"
+            placeholder="enter price"
+            value="<%= editListing.price %>"
+            type="text"
+            class="form-control"
+          />
+        </div>
+        <div class="mb-3 col-md-8">
+          <label for="country" class="form-label">Country</label>
+          <input
+            name="country"
+            placeholder="enter country"
+            value="<%= editListing.country %>"
+            type="text"
+            class="form-control"
+          />
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="location" class="form-label">Country</label>
+        <input
+          name="location"
+          placeholder="enter location"
+          value="<%= editListing.location %>"
+          type="text"
+          class="form-control"
+        />
+      </div>
+      
+      <button class="btn btn-dark edit-btn mt-3">Edit</button>
     </form>
-</body>
+  </div>
+</div>
