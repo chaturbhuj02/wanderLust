@@ -1,5 +1,5 @@
 body{
-    font-family: "Plus Jakarta Sans, sans-serif" !important;
+    font-family: "Plus Jakarta Sans", sans-serif;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -103,4 +103,19 @@ body{
 .edit-btn{
     background-color: #f2424d !important;
     border: none !important;
+}
+
+/*Show Page*/
+
+.show-img{
+    height: 30vh;
+}
+
+.btns{
+    display: flex;
+}
+
+.show-card {
+    padding-left:0 ;
+    padding-right:0 ;
 }
