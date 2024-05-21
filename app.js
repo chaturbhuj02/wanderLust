@@ -54,8 +54,10 @@ app.get("/", (req, res) => {
 app.use(session(sessionOptions));
 app.use(flash());
 
-passport.initialize();
-passport.session();
+// Initialize Passport and session handling
+app.use(passport.initialize());
+app.use(passport.session());
+
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
