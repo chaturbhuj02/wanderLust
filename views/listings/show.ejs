@@ -13,6 +13,7 @@
     />
     <div class="card-body">
       <p class="card-text">
+        <i>Created By: <%= listing.owner.username  %></i> <br />
         <%= listing.description %> <br />
         &#8377;<%= listing.price.toLocaleString("en-IN") %> <br />
         <%= listing.location %> <br />
@@ -22,6 +23,8 @@
   </div>
 
   <br />
+
+  
   <div class="btns">
     <a
       href="/listings/<%= listing._id %>/edit"
@@ -33,6 +36,7 @@
       <button class="btn btn-dark offset-5">Delete</button>
     </form>
   </div>
+  
 
   <div class="col-8 offset-3">
     <hr />
