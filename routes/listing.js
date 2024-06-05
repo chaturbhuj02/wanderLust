@@ -6,8 +6,6 @@ const ExpressError = require("../utils/ExpressError.js");
 const { isLoggedIn, isOwner, validateListing } = require("../middleware.js");
 const router = express.Router();
 
-
-
 //index route
 router.get("/", async (req, res) => {
   const allListings = await Listing.find({})
@@ -26,7 +24,9 @@ router.get(
   "/:id",
   wrapAsync(async (req, res) => {
     let { id } = req.params;
-    const listing = await Listing.findById(id).populate("reviews").populate("owner");
+    const listing = await Listing.findById(id)
+      .populate({ path: "reviews", populate: { path: "author" } })
+      .populate("owner");
     if (!listing) {
       req.flash("error", "Listing you requested for does not exist!");
       res.redirect("/listings");
@@ -71,7 +71,8 @@ router.get("/:id/edit", isLoggedIn, isOwner, async (req, res) => {
 //update route
 router.put(
   "/:id",
-  isLoggedIn, isOwner,
+  isLoggedIn,
+  isOwner,
   validateListing,
   wrapAsync(async (req, res) => {
     let { id } = req.params;
@@ -84,7 +85,7 @@ router.put(
       location,
       country,
     });
-    req.flash('success','Listing updated!');
+    req.flash("success", "Listing updated!");
     res.redirect(`/listings/${id}`);
   })
 );
